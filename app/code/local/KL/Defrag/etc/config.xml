@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <KL_Defrag>
+            <version>0.0.1</version>
+        </KL_Defrag>
+    </modules>
+    <global>
+        <helpers>
+            <defrag>
+                <class>KL_Defrag_Helper</class>
+            </defrag>
+        </helpers>
+        <models>
+            <defrag>
+                <class>KL_Defrag_Model</class>
+                <resourceModel>defrag_mysql4</resourceModel>
+            </defrag>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <defrag_defrag>
+                <schedule>
+                    <cron_expr>0 3 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>defrag/cron::defrag</model>
+                </run>
+            </defrag_defrag>
+        </jobs>
+    </crontab>
+</config> 

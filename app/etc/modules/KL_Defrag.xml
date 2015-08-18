@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <KL_Defrag>
+            <active>true</active>
+            <codePool>local</codePool>
+        </KL_Defrag>
+    </modules>
+</config>
