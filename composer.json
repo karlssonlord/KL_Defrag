@@ -1,0 +1,19 @@
+{
+  "name": "kl/defrag",
+  "description": "Magento module to keep database tables optimized",
+  "require": {
+    "php": ">=5.4"
+  },
+  "require-dev": {
+    "leaphub/phpcs-symfony2-standard": "~2.0.0",
+    "jakub-onderka/php-parallel-lint": "0.*",
+    "phpunit/phpunit": "4.*",
+    "sebastian/phpcpd": "*"
+  },
+  "authors": [
+    {
+      "name": "Robert Lord",
+      "email": "robert@karlssonlord.com"
+    }
+  ]
+}
