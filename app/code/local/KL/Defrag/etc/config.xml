@@ -20,14 +20,14 @@
     </global>
     <crontab>
         <jobs>
-            <kldefrag_defrag>
+            <kl_defrag>
                 <schedule>
                     <cron_expr>0 3 * * *</cron_expr>
                 </schedule>
                 <run>
                     <model>kldefrag/cron::defrag</model>
                 </run>
-            </kldefrag_defrag>
+            </kl_defrag>
         </jobs>
     </crontab>
 </config> 
