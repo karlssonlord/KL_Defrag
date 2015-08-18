@@ -1,5 +1,7 @@
 <?php
 
+namespace KL\Defrag\Model;
+
 /**
  * Class KL_Defrag_Model_Cron
  */
@@ -44,12 +46,10 @@ class KL_Defrag_Model_Cron
          * Fetch fragmentation status
          */
         foreach ($readConnection->fetchAll($sqlQuery) as $dbRow) {
-
             /**
              * Act only if fragmentation is above 5
              */
             if ($dbRow['fragmentation'] >= 5) {
-
                 /**
                  * Save a notice to the log
                  */

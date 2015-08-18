@@ -1,5 +1,7 @@
 <?php
 
+namespace KL\Defrag\Helper;
+
 /**
  * Class KL_Defrag_Helper_Data
  */
@@ -8,7 +10,7 @@ class KL_Defrag_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Save data to the log
      *
-     * @param $data
+     * @param mixed $data Any type of data to log
      *
      * @return $this
      */
