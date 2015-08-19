@@ -1,7 +1,5 @@
 <?php
 
-namespace KL\Defrag\Model;
-
 /**
  * Class KL_Defrag_Model_Cron
  */
@@ -72,7 +70,6 @@ class KL_Defrag_Model_Cron
                         break;
                 }
             }
-
         }
     }
 }

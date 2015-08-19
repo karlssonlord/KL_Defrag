@@ -1,7 +1,5 @@
 <?php
 
-namespace KL\Defrag\Helper;
-
 /**
  * Class KL_Defrag_Helper_Data
  */
