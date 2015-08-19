@@ -13,7 +13,8 @@ class KL_Defrag_Model_Cron
         /**
          * Fetch database name
          */
-        $databaseName = Mage::getConfig()->getResourceConnectionConfig('default_setup')->dbname;
+        $databaseName = Mage::getConfig()
+            ->getResourceConnectionConfig('default_setup')->dbname;
 
         /**
          * Get our helper
@@ -38,7 +39,20 @@ class KL_Defrag_Model_Cron
         /**
          * Setup our magic query to fetch table fragmentation
          */
-        $sqlQuery = "SELECT ENGINE, TABLE_SCHEMA, TABLE_NAME, Round(DATA_LENGTH/1024/1024) AS data_length, round(INDEX_LENGTH/1024/1024) AS index_length, round(DATA_FREE/ 1024/1024) AS data_free, round((data_free/(data_length+index_length))/100) AS fragmentation FROM information_schema.tables WHERE DATA_FREE > 0 AND TABLE_SCHEMA='" . $databaseName . "' ORDER BY fragmentation DESC";
+        $sqlQuery = <<<EOT
+SELECT
+  ENGINE, TABLE_SCHEMA, TABLE_NAME,
+  round(DATA_LENGTH/1024/1024) AS data_length,
+  round(INDEX_LENGTH/1024/1024) AS index_length,
+  round(DATA_FREE/ 1024/1024) AS data_free,
+  round((data_free/(data_length+index_length))/100) AS fragmentation
+FROM
+  information_schema.tables
+WHERE
+  DATA_FREE > 0 AND TABLE_SCHEMA='" . $databaseName . "'
+ORDER BY
+  fragmentation DESC
+EOT;
 
         /**
          * Fetch fragmentation status
@@ -53,7 +67,8 @@ class KL_Defrag_Model_Cron
                  */
                 $helper->log(
                     sprintf(
-                        'Table "%s" has a fragmentation value of %s (%s mb free) and will be optimized',
+                        'Table "%s" has a fragmentation value of %s
+                        (%s mb free) and will be optimized',
                         $dbRow['TABLE_NAME'],
                         $dbRow['fragmentation'],
                         $dbRow['data_free']
